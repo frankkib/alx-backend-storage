@@ -1,0 +1,6 @@
+//script that lists all documents with name="Holberton school" in the collection school
+use my_db;
+var documents = db.school.find()
+documents.forEach(function(doc) {
+printjson(doc);
+});
