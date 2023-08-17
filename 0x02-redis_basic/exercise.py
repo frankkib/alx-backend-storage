@@ -5,17 +5,25 @@ import redis
 from typing import Union, Callable
 
 
-def call_history(method: Callable) -> Callable:
-    """function that increaments values"""
+def counts_calls(method: Callable) -> Callable:
+    """function that counts number of calls"""
     def wrapper(*args, **kwargs):
         """this a function decorator"""
-        function_name = method.__equalname__
-        inputs_key = f"{function_name}:inputs"
-        outputs_key = f"{function_name}:outputs"
-        input_str = str(args)
-        redis_client.rpush(inputs_key, input_str)
-        result = method(*args, **kwargs)
-        redis_client.rpush(outputs_key, result)
+        key = f"method:{method.__equalname__}"
+        self.-redis.incr(key)
+        return method(self, *args, **kwargs)
+    return wrapper
+
+
+def call_history(method: Callable) -> Callabel:
+    """function that increaments number of calls"""
+    def wrapper(*args, **kwargs):
+        """retuns the number of call increamented"""
+        inputs_key = f"{method.__qualname__}:inputs"
+        outputs_key = f"{method.__qualname__}:outputs"
+        self._redis.rpush(inputs_key, str(args))
+        result = method(self, args, kwargs)
+        self._redis.rpush(outputs_key, str(result))
         return result
     return wrapper
 
