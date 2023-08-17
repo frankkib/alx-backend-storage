@@ -5,7 +5,7 @@ import redis
 from typing import Union, Callable
 
 
-def counts_calls(method: Callable) -> Callable:
+def count_calls(method: Callable) -> Callable:
     """function that counts number of calls"""
     def wrapper(*args, **kwargs):
         """this a function decorator"""
