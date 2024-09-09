@@ -1,3 +1,4 @@
-//script that lists all databases in MongoDB
-db.adminCommand({ listDatabases: 1 }).databases.forEach(function(database) { 
-print(database.name + "\t" ); });
+// List all databases
+db.adminCommand('listDatabases').databases.forEach(function(db) {
+    print(db.name);
+});
