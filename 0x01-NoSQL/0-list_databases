@@ -1,4 +1,6 @@
 // List all databases
-db.adminCommand('listDatabases').databases.forEach(function(db) {
+var result = db.adminCommand('listDatabases');
+result.databases.forEach(function(db) {
     print(db.name);
 });
+
