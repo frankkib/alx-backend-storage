@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+"""
+101-students module
+
+This module contains functions to interact with MongoDB collections
+related to students,
+including calculating and sorting students by their average scores.
+"""
+
+from pymongo import MongoClient
 
 
 def top_students(mongo_collection):
