@@ -24,8 +24,8 @@ def log_stats(mongo_collection):
     print(f"{total_logs} logs")
     print("Methods:")
     for method in methods:
-        print(f"\t{method}: {method_counts[method]}")
-    print(f"\tGET /status: {get_status_count}")
+        print(f"method {method}: {method_counts[method]}")
+    print(f"{get_status_count} status check")
 
     pipeline = [
         {
@@ -46,7 +46,7 @@ def log_stats(mongo_collection):
     
     ip_counts = mongo_collection.aggregate(pipeline)
     
-    print("Top 10 most frequent IPs:")
+    print("IPs:")
     for ip_doc in ip_counts:
         print(f"\t{ip_doc['_id']}: {ip_doc['count']}")
 
@@ -56,3 +56,4 @@ if __name__ == "__main__":
     collection = db['nginx']
     
     log_stats(collection)
+
