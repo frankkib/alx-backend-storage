@@ -5,6 +5,15 @@ from pymongo import MongoClient
 from pymongo import DESCENDING
 
 def log_stats(mongo_collection):
+    """
+    Prints statistics about the logs in the collection.
+
+    Parameters:
+    - mongo_collection: The pymongo collection object representing the Nginx logs collection.
+
+    Returns:
+    - None: This function prints the results directly to the console.
+    """
     total_logs = mongo_collection.count_documents({})
 
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
