@@ -1,0 +1,2 @@
+//A script that finds and list all documets with name starting y Holberton
+db.school.find({ name: /^Holberton/ }).forEach(printjson);
