@@ -18,8 +18,8 @@ def print_nginx_log_stats():
     print(f"{total_logs} logs")
     print("Methods:")
     for method in methods:
-        print(f"\t{method}: {method_counts[method]}")
-    print(f"\tGET /status: {get_status_count}")
+        print(f"\tmethod {method}: {method_counts[method]}")
+    print(f"{get_status_count} status check")
 
 
 if __name__ == "__main__":
