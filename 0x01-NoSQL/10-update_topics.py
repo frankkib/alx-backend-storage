@@ -8,7 +8,7 @@ def update_topics(mongo_collection, name, topics):
             {"name": name},
             {"$set": {"topics": topics}}
             )
-    if result.modified_count > :
+    if result.modified_count > 0:
         return "OK"
     else:
         return "No documets updated"
