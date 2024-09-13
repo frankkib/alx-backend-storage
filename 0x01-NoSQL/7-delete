@@ -1,0 +1,2 @@
+//Deleting a document from the database
+db.school.deleteMany({ name: "Holberton school" });
